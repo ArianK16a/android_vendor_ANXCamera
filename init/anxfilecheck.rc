@@ -1,0 +1,8 @@
+service anxfilecheck /system/bin/anxfilecheck
+    class main
+    user root
+    group root
+    disabled
+
+on property:sys.boot_completed=1
+    start anxfilecheck
