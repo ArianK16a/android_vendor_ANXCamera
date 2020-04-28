@@ -3,7 +3,11 @@
 ANX_DIR="/sdcard/.ANXCamera"
 DEVICE=$(getprop ro.product.device)
 
-if [ -d $ANX_DIR || -f /system/etc/ANXCamera/cheatcodes/feature_${DEVICE} || -f /system/etc/device_features/${DEVICE}.xml ]; then
+if [ ! -d ${ANX_DIR} ]; then
+    mkdir -p ${ANX_DIR}
+fi
+
+if [ -f /system/etc/ANXCamera/cheatcodes/feature_${DEVICE} || -f /system/etc/device_features/${DEVICE}.xml ]; then
     new_cheatcode=$(sha1sum /system/etc/ANXCamera/cheatcodes/feature_${DEVICE} | cut -d " " -f1)
     old_cheatcode=$(sha1sum ${ANX_DIR}/cheatcodes_reference/feature_${DEVICE} | cut -d " " -f1)
 
