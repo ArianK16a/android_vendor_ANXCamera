@@ -3,3 +3,7 @@ service anxfilecheck /system/bin/anxfilecheck
     user root
     group root
     oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start anxfilecheck
