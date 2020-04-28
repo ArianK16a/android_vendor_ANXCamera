@@ -1,4 +1,4 @@
-#!/vendor/bin/sh
+#!/system/bin/sh
 
 ANX_DIR="/sdcard/.ANXCamera"
 DEVICE=$(getprop ro.product.device)
