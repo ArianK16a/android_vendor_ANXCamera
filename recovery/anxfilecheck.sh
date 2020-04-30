@@ -14,7 +14,7 @@ if [[ -f /system/etc/ANXCamera/cheatcodes/feature_${DEVICE} && -f /system/etc/de
     new_features=$(sha1sum /system/etc/device_features/${DEVICE}.xml | cut -d " " -f1)
     old_features=$(sha1sum ${ANX_DIR}/features_reference/${DEVICE}.xml | cut -d " " -f1)
 
-    if [[ "$new_cheatcode" = "$old_cheatcode" || "$new_features" = "$old_features" ]]; then
+    if [[ "$new_cheatcode" = "$old_cheatcode" && "$new_features" = "$old_features" ]]; then
         echo "anxfilecheck: You are using the latest cheatcode and feature files."
     else
         mkdir ${ANX_DIR}/cheatcodes/

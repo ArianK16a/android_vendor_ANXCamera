@@ -15,7 +15,7 @@
 #
 
 # ANX filecheck
-PRODUCT_PACKAGES += \
-    anxfilecheck
+PRODUCT_COPY_FILES += \
+    vendor/ANXCamera/recovery/anxfilecheck.sh:anxfilecheck.sh
 
 $(call inherit-product, vendor/ANXCamera/common/common-vendor.mk)

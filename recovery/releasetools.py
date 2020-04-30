@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS += vendor/ANXCamera/recovery
-
-include vendor/ANXCamera/common/BoardConfigVendor.mk
+def FullOTA_InstallEnd(self):
+  info.script.Print("Updating ANXCamera configs...")
+  self.script.AppendExtra('package_extract_file("anxfilecheck.sh", "/tmp/anxfilecheck.sh");')
+  self.script.AppendExtra('set_metadata("/tmp/anxfilecheck.sh", "uid", 0, "gid", 0, "mode", 0755);')
+  self.script.AppendExtra('run_program("/tmp/anxfilecheck.sh");')
